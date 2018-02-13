@@ -1,16 +1,16 @@
 var Letter = require('./letter.js');
 
-// var word = process.argv[2];
-
 function Word(word) {
+    this.correctLetters = [];
+    this.letterObjs = [];
     this.createLetters = function (word) {
         let letters = word.split('');
-        let letterArr = [];
         for (let i in letters) {
             let letterUp = letters[i].toUpperCase();
-            letterArr.push(new Letter(letterUp));
+            this.correctLetters.push(letterUp);
+            this.letterObjs.push(new Letter(letterUp));
         }
-        return letterArr;
+        return this.letterObjs;
     };
     
     this.string = function () {
@@ -25,8 +25,16 @@ function Word(word) {
         for (let i in this.word) {
             this.word[i].check(character);
         }
-    }
+    };
+
     this.word = this.createLetters(word);
 };
+
+Word.prototype.finished = function() {
+    for (let i in this.letterObjs) {
+        if (!this.letterObjs[i].guessed) return false;
+    }
+    return true;
+}
 
 module.exports = Word;

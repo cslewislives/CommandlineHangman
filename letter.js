@@ -11,6 +11,7 @@ function Letter(character) {
     this.check = function(input) {
         if (input === this.character) {
             this.guessed = true;
+            this.underline();
         }
     };
 }
