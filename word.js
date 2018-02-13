@@ -1,5 +1,17 @@
+/**
+ * @file Constructs Word object for Command Line Hangman 
+ * @author Joshua C.S. Lewis
+ * @version 1.0 
+*/
+
 var Letter = require('./letter.js');
 
+
+/** 
+ * @constructor Word
+ * @param {string} word - Word selected at random from the bank array.
+ * @returns {Object} Word Object with methods for guessing letters.
+*/
 function Word(word) {
     this.correctLetters = [];
     this.letterObjs = [];
@@ -30,6 +42,7 @@ function Word(word) {
     this.word = this.createLetters(word);
 };
 
+/* Iterates through each letter. If all have been guessed then the word is finished */
 Word.prototype.finished = function() {
     for (let i in this.letterObjs) {
         if (!this.letterObjs[i].guessed) return false;

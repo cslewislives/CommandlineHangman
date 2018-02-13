@@ -1,3 +1,15 @@
+/**
+ * @file Constructs Letter object for Command Line Hangman 
+ * @author Joshua C.S. Lewis
+ * @version 1.0 
+*/
+
+
+/** 
+ * @constructor Letter
+ * @param {string} character - Letter input by user.
+ * @returns {Object} Object that defines each Letter.
+*/
 function Letter(character) {
     this.character = character;
     this.guessed = false;

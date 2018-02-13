@@ -1,8 +1,14 @@
-var Word = require('./word.js');
-var inquirer = require('inquirer');
-var alpha = 'abcdefghijklmnopqrstuvwxyz';
-var alphaArr = alpha.split('');
-var lettersGuessed,
+/**
+ * @file Defines main game logic for Command Line Hangman. 
+ * @author Joshua C.S. Lewis
+ * @version 1.0 
+ */
+
+var Word = require('./word.js'),
+    inquirer = require('inquirer'),
+    alpha = 'abcdefghijklmnopqrstuvwxyz',
+    alphaArr = alpha.split(''),
+    lettersGuessed,
     randomWord,
     chosenWord,
     chances;
@@ -38,7 +44,12 @@ inquirer.prompt([{
     if (answers.confirmation) {
         initialize();
 
+        /** 
+         * @function chooseLetter
+         * @description Main game logic. Contains all inquirer prompts and makes use of the Word constructer to check letters guessed.
+         */
         function chooseLetter() {
+            
             if (chances > 0 && !chosenWord.finished()) {
                 inquirer.prompt([{
                     name: 'letter',
@@ -53,6 +64,8 @@ inquirer.prompt([{
                     }
                 }]).then(function (answers) {
                     let guess = answers.letter.toUpperCase();
+
+                    /* Checks user's guess then goes through a series of if statements to check for correct letters/already guessed letters/incorrect letters */
                     chosenWord.checker(guess);
                     if (lettersGuessed.indexOf(guess) === -1 && chosenWord.correctLetters.indexOf(guess) !== -1) {
                         lettersGuessed.push(guess);
@@ -104,16 +117,24 @@ inquirer.prompt([{
     }
 })
 
+/** 
+   * @function initialize
+   * @description Initializes application.
+  */
 function initialize() {
     randomWord = bank[Math.floor(Math.random() * bank.length)];
-    console.log(randomWord);
+    // console.log(randomWord);
     chosenWord = new Word(randomWord);
-    console.log(chosenWord.correctLetters);
+    // console.log(chosenWord.correctLetters);
     lettersGuessed = [];
     chances = 8;
     print();
 }
 
+/** 
+   * @function print
+   * @description Prints the secret word to the console.
+  */
 function print() {
     console.log('\n' + chosenWord.string() + '\n');
 }
