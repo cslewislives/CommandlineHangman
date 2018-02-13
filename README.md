@@ -1,4 +1,4 @@
-## CommandlineHangman
+# CommandlineHangman
 
 Hangman game that is played in the command line using node
 
@@ -15,7 +15,7 @@ Node.js and required modules
 
 ## Built With
 
-* [Javascript] - Main logic
+* Javascript - Main logic
 * [Node.js](https://nodejs.org/en/) - JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
 * [inquirer](https://www.npmjs.com/package/inquirer) - Node module used for asking questions in command line.
 
