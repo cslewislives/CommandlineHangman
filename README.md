@@ -7,7 +7,7 @@ Hangman game that is played in the command line using node
 You should be able to download the files on your computer and run via node once you have npm installed the required modules. Once installed run app by typing node index into the command line. Everything will be explained as you go. 
 
 ## Example
-[Example](https://gyazo.com/ff2ec8e8e489f540ff23cb78ceab2f51)
+![alt text](https://github.com/cslewislives/CommandlineHangman/blob/master/exmple.gif)
 
 ### Prerequisites
 
